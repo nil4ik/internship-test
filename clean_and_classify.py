@@ -2,12 +2,6 @@ GRANT_KEYWORDS = ["grant", "funding", "deadline", "scholarship"]
 REPORT_KEYWORDS = ["report", "file", "send again", "document"]
 QUESTION_KEYWORDS = ["how", "what", "can you", "where", "why"]
 
-# Conflict resolution: if a message matches more than one category, I pick
-# grant_search first, then report_request, then general_question.
-# Because words like "grant" or "scholarship" tell you exactly what the
-# person wants. Words like "can you" or "what" are just how people ask
-# questions in general, they don't say much on their own.
-
 def clean_and_classify(messages):
     result = []
     for msg in messages:
@@ -59,3 +53,11 @@ if __name__ == "__main__":
 # {'user_id': 'u1', 'channel': 'whatsapp', 'message': 'Can you help me find funding?', 'category': 'grant_search'}
 # {'user_id': 'u4', 'channel': 'telegram', 'message': 'Good morning!', 'category': 'unknown'}
 # {'user_id': 'u5', 'channel': 'email', 'message': 'Can you send me the scholarship document?', 'category': 'grant_search'}
+
+################################################################################
+
+# Conflict resolution: if a message matches more than one category, I pick
+# grant_search first, then report_request, then general_question.
+# Because words like "grant" or "scholarship" tell you exactly what the
+# person wants. Words like "can you" or "what" are just how people ask
+# questions in general, they don't say much on their own.
