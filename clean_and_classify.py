@@ -61,3 +61,14 @@ if __name__ == "__main__":
 # Because words like "grant" or "scholarship" tell you exactly what the
 # person wants. Words like "can you" or "what" are just how people ask
 # questions in general, they don't say much on their own.
+
+################################################################################
+
+## Known limitation
+
+# Category matching uses substring search (`in text_lower`), which is simple
+# and readable but can false-positive on words that contain a keyword inside
+# them ("show" contains "how"). None of the
+# 8 test messages trigger this, so I kept substring matching for readability
+# within the time budget. A safer version would use regex word boundaries
+# (`\bhow\b`) to only match whole words.
